@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trendz - Cart</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+  <div class="wrapper">
+  <header>
+    <h1> Trendz</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="dropdown">
+        <a href="shop.html" >Shop</a>
+        <ul class="dropdown-menu">
+        <li><a href="men.html" target="_blank">Men</a></li>
+        <li><a href="women.html" target="_blank">Women</a></li>
+        <li><a href="kids.html" target="_blank">Kids</a></li>
+        </ul>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+
+    
+    <div id="cart-container"></div>
+    <div class="cart-buttons">
+      <button class="clear-btn" onclick="clearCart()">Clear All</button>
+      
+    </div>
+
+    
+    <div class="checkout-area">
+      <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to payment</button>
+    </div>
+
+    <div id="payment-success" class="payment-success" style="display: none;">
+      <h3>✅ Payment Successful!</h3>
+      <p>Thank you for your purchase. Your order is being processed.</p>
+    </div>
+
+    
+
+  </main>
+  <footer>
+    <p>&copy; 2025 Trendz. All rights reserved.</p>
+  </footer>
+  
+
+</div>
+</body>
+<script>
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const container = document.getElementById('cart-container');
+
+  function renderCart() {
+    if (cart.length === 0) {
+      container.innerHTML = `<p class="empty-message">🛒 Your cart is empty.</p>`;
+      return;
+    }
+
+    let html = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
+
+      html += `
+        <div class="cart-item">
+          <h3>${item.name}</h3>
+          <p>Price: ₹${item.price} × ${item.quantity}</p>
+          <div class="quantity-controls">
+            <button onclick="decreaseQuantity(${index})">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="increaseQuantity(${index})">+</button>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          
+        </div>
+      `;
+    });
+
+    html += `<div class="total">Total: ₹${total}</div>`;
+    container.innerHTML = html;
+  }
+
+  function increaseQuantity(index) {
+    cart[index].quantity += 1;
+    updateCart();
+  }
+
+  function decreaseQuantity(index) {
+    if (cart[index].quantity > 1) {
+      cart[index].quantity -= 1;
+      updateCart();
+    } else {
+      removeItem(index); // Auto-remove if quantity becomes 0
+    }
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
+
+  renderCart();
+
+  function clearCart() {
+  if (confirm("Are you sure you want to clear the cart?")) {
+    localStorage.removeItem('cart');
+    cart = [];
+    renderCart();
+  }
+}
+  
+function proceedToCheckout() {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Add items before paying out.");
+    return;
+  }
+
+  document.getElementById("payment-success").style.display = "block";
+  localStorage.removeItem('cart');
+  cart = [];
+  renderCart();
+}
+
+</script>
+
+</html>
