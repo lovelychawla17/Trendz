@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trendz - Womens</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+  <header>
+    <h1> Trendz</h1>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="about.html" >About</a>
+      <div class="dropdown">
+        <a href="shop.html" >Shop</a>
+        <ul class="dropdown-menu">
+        <li><a href="men.html" target="_blank">Men</a></li>
+        <li><a href="women.html" target="_blank">Women</a></li>
+        <li><a href="kids.html" target="_blank">Kids</a></li>
+        </ul>
+      </div>
+      <a href="cart.html" >Cart</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="heading-shop">Shop Our Womens Collection</h2>
+    <section class="products">
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women001.png" alt="Product 1">
+          <div class="product-info">
+            <h3>Fancy set</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="1"
+            data-name="Fancy set"
+            data-price="1999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women002.jpg" alt="Product 2">
+          <div class="product-info">
+            <h3>Traditional suit</h3>
+            <p>Rs. 2999/-</p>
+            <button class="add-to-cart"
+            data-id="2"
+            data-name="Traditional suit"
+            data-price="2999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women003.jpg" alt="Product 3">
+          <div class="product-info">
+            <h3>Crop Jacket</h3>
+            <p>Rs. 1500/-</p>
+            <button class="add-to-cart"
+            data-id="3"
+            data-name="Crop Jacket"
+            data-price="1500">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women004.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Long coat</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="4"
+            data-name="Long coat"
+            data-price="1999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women005.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Comfy Trowsers</h3>
+            <p>Rs. 799/-</p>
+            <button class="add-to-cart"
+            data-id="5"
+            data-name="Comfy Trowsers"
+            data-price="799">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women006.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Beautiful one piece</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="6"
+            data-name="Beautiful one piece"
+            data-price="1999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women007.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Classy pair</h3>
+            <p>Rs. 3999/-</p>
+            <button class="add-to-cart"
+            data-id="7"
+            data-name="Classy pair"
+            data-price="3999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women008.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Classy Blazer</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="8"
+            data-name="Classy Blazer"
+            data-price="1999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <p>&copy; 2025 Trendz. All rights reserved.</p>
+  </footer>
+  </div>
+</body>
+
+<script>
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: parseFloat(button.dataset.price),
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingItem = cart.find(item => item.id === product.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    });
+  });
+</script>
+
+</html>
