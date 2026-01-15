@@ -10,7 +10,7 @@ Full-stack e-commerce web application demonstrating frontend and backend develop
 - HTML, CSS, JavaScript
 - Node.js, Express.js
 - MySQL
-- Netlify, Render / Railway
+- Netlify, Render and Railway
 
 ## Features
 - User Signup & Signin
