@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trendz - Kids</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wrapper">
+  <header>
+    <h1> Trendz</h1>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="about.html" >About</a>
+      <div class="dropdown">
+        <a href="shop.html" >Shop</a>
+        <ul class="dropdown-menu">
+        <li><a href="men.html" target="_blank">Men</a></li>
+        <li><a href="women.html" target="_blank">Women</a></li>
+        <li><a href="kids.html" target="_blank">Kids</a></li>
+        </ul>
+      </div>
+      <a href="cart.html" >Cart</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="heading-shop">Shop Our Kids Collection</h2>
+    <section class="products">
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid01.jpg" alt="Product 1">
+          <div class="product-info">
+            <h3>Casual wear</h3>
+            <p>Rs. 699/-</p>
+            <button class="add-to-cart"
+            data-id="1"
+            data-name="Casual wear"
+            data-price="699">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid02.jpg" alt="Product 2">
+          <div class="product-info">
+            <h3>Baby wear</h3>
+            <p>Rs. 499/-</p>
+            <button class="add-to-cart"
+            data-id="2"
+            data-name="Baby wear"
+            data-price="499">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid03.jpg" alt="Product 3">
+          <div class="product-info">
+            <h3>Cool shirt</h3>
+            <p>Rs. 999/-</p>
+            <button class="add-to-cart"
+            data-id="3"
+            data-name="Cool shirt"
+            data-price="999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid04.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Comfy duo</h3>
+            <p>Rs. 799/-</p>
+            <button class="add-to-cart"
+            data-id="4"
+            data-name="Comfy duo"
+            data-price="799">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid005.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Winter Jacket</h3>
+            <p>Rs. 1499/-</p>
+            <button class="add-to-cart"
+            data-id="5"
+            data-name="Winter Jacket"
+            data-price="1499">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid006.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Oversized Hoddie</h3>
+            <p>Rs. 999/-</p>
+            <button class="add-to-cart"
+            data-id="6"
+            data-name="Oversized Hoddie"
+            data-price="999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid007.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Aesthatic wear</h3>
+            <p>Rs. 999/-</p>
+            <button class="add-to-cart"
+            data-id="7"
+            data-name="Aesthatic wear"
+            data-price="999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/kid008.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Cute skirt</h3>
+            <p>Rs. 799/-</p>
+            <button class="add-to-cart"
+            data-id="8"
+            data-name="Cute skirt"
+            data-price="799">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <p>&copy; 2025 Trendz. All rights reserved.</p>
+  </footer>
+  </div>
+</body>
+
+<script>
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: parseFloat(button.dataset.price),
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingItem = cart.find(item => item.id === product.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    });
+  });
+</script>
+
+</html>

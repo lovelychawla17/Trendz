@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trendz | Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body>
+  <div class="wrapper">
+  
+    <header>
+      <h1>Trendz</h1>
+      <nav>
+        
+        <a href="index.html" target="_blank">Home</a>
+        <a href="about.html" target="_blank">About</a>
+
+        <div class="dropdown">
+        <a href="shop.html" >Shop</a>
+        <ul class="dropdown-menu">
+        <li><a href="men.html" target="_blank">Men</a></li>
+        <li><a href="women.html" target="_blank">Women</a></li>
+        <li><a href="kids.html" target="_blank">Kids</a></li>
+        </ul>
+      </div>
+        <a href="cart.html" target="_blank">Cart</a>
+        <a href="contact.html" target="_blank">Contact</a>
+        <a href="signup.html" class="signin-btn">signin</a>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <section class="hero">
+      <div class="hero-content">
+      <h2>Elevate Your Style</h2>
+      <p>Shop the latest Gen Z fashion trends — bold, sustainable, and unapologetically you.</p>
+      <a href="shop.html" class="btn">Shop Now</a>
+      
+</div>
+
+    </section>
+    <section class="featured">
+      <h3>🔥 Trending Now</h3>
+      <div class="products">
+    <div class="product-card">
+        <div class="image-container">
+          <img src="photos/men1.jpg" alt="Product 1">
+          <div class="product-info">
+            <h3>Streetwear Hoodie</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="1"
+            data-name="Streetwear Hoodie"
+            data-price="1999">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women2.jpg" alt="Product 2">
+          <div class="product-info">
+            <h3>Fancy crop top</h3>
+            <p>Rs. 999/-</p>
+            <button class="add-to-cart"
+            data-id="2"
+            data-name="Fancy crop top"
+            data-price="999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/men3.jpg" alt="Product 3">
+          <div class="product-info">
+            <h3>Oversized jackets</h3>
+            <p>Rs. 1499/-</p>
+            <button class="add-to-cart"
+            data-id="3"
+            data-name="Oversized jackets"
+            data-price="1499">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women1.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Oversized coat</h3>
+            <p>Rs. 2999/-</p>
+            <button class="add-to-cart"
+            data-id="4"
+            data-name="Oversized coat"
+            data-price="2999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/men2.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Winter jackets</h3>
+            <p>Rs. 1699/-</p>
+            <button class="add-to-cart"
+            data-id="5"
+            data-name="Winter jackets"
+            data-price="1699">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women3.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Denim jeans</h3>
+            <p>Rs. 1500/-</p>
+            <button class="add-to-cart"
+            data-id="6"
+            data-name="Denim jeans"
+            data-price="1500">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/men4.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Classy pants</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="7"
+            data-name="Classy pants"
+            data-price="1999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image-container">
+          <img src="photos/women4.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Cool pants</h3>
+            <p>Rs. 1999/-</p>
+            <button class="add-to-cart"
+            data-id="8"
+            data-name="Cool pants"
+            data-price="1999">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="why-choose-us">
+      <h3>Why Trendz?</h3>
+      <ul>
+        <li>🌱 Eco-conscious & ethical production</li>
+        <li>⚡ Styles that break the internet</li>
+        <li>📦 Free shipping on orders over Rs. 4000/-</li>
+        <li>💬 24/7 Support via DMs or email</li>
+      </ul>
+    </section>
+
+    <section class="social-proof">
+      <h3>Join Our Community</h3>
+      <p>Follow us on Instagram for drops, styling tips & behind-the-scenes content.</p>
+      <a href="#">@trendz.shop</a>
+    </section>
+
+  <footer>
+    <p>&copy; 2025 Trendz. All rights reserved.</p>
+  </footer>
+  
+  </div>
+</body>
+
+<script>
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: parseFloat(button.dataset.price),
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingItem = cart.find(item => item.id === product.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    });
+  });
+</script>
+
+</html>
